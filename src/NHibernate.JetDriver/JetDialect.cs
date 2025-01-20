@@ -195,7 +195,7 @@ namespace NHibernate.JetDriver
         /// <param name="offset">Specifies the number of rows to skip, before starting to return rows from the query expression.</param>
         /// <param name="limit">Is used to limit the number of results returned in a SQL statement</param>
         /// <returns>Processed query</returns>
-        public override SqlString GetLimitString(SqlString querySqlString, int offset, int limit)
+        public SqlString GetLimitString(SqlString querySqlString, int offset, int limit)
         {
             return querySqlString.Replace("select", string.Format("select top {0}", limit));
         }

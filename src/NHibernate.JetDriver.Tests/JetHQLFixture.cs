@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 using NHibernate.JetDriver.Tests.Entities;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace NHibernate.JetDriver.Tests
 {

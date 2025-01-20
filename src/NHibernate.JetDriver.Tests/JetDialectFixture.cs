@@ -4,7 +4,6 @@ using NHibernate.Dialect.Function;
 using NHibernate.JetDriver.Tests.Entities;
 using NHibernate.Tool.hbm2ddl;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace NHibernate.JetDriver.Tests 
 {
@@ -21,7 +20,7 @@ namespace NHibernate.JetDriver.Tests
         {
             var dialect = new JetDialect();
             ISQLFunction func;
-            Assert.IsTrue(dialect.Functions.TryGetValue("upper", out func));
+            Assert.That(dialect.Functions.TryGetValue("upper", out func), Is.True);
 
             var sqlFuncParams = new StringCollection { "foo" };
             var sqlString = func.Render(sqlFuncParams, null).ToString();
@@ -34,7 +33,7 @@ namespace NHibernate.JetDriver.Tests
         {
             var dialect = new JetDialect();
             ISQLFunction func;
-            Assert.IsTrue(dialect.Functions.TryGetValue("lower", out func));
+            Assert.That(dialect.Functions.TryGetValue("lower", out func), Is.True);
 
             var sqlFuncParams = new StringCollection { "foo" };
             var sqlString = func.Render(sqlFuncParams, null).ToString();

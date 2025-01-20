@@ -6,7 +6,6 @@ using System.Reflection;
 using System.Collections.Generic;
 
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 using NHibernate.JetDriver.Tests.Entities;
 
@@ -43,9 +42,9 @@ namespace NHibernate.JetDriver.Tests
 
                 var readback = session.Load<DecimalEntity>(entity.Id);
 
-                Assert.IsNotNull(readback);
-                Assert.AreEqual((decimal)1.1, readback.SimpleDecimal);
-                Assert.AreEqual((decimal?)1.3, readback.NullableDecimal);
+                // Assert.That(readback, Is.Not);
+                Assert.That(readback.SimpleDecimal, Is.EqualTo((decimal)1.1));
+                Assert.That(readback.NullableDecimal, Is.EqualTo((decimal?)1.3));
             }
         }
 

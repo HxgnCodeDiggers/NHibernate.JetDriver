@@ -2,7 +2,6 @@ using System;
 using NHibernate.Criterion;
 using NHibernate.JetDriver.Tests.Entities;
 using NUnit.Framework;
-using NUnit.Framework.SyntaxHelpers;
 
 namespace NHibernate.JetDriver.Tests
 {
@@ -42,7 +41,7 @@ namespace NHibernate.JetDriver.Tests
                 }
                 catch (Exception ex)
                 {
-                    Assert.Fail("failed to run query", ex.Message);
+                    Assert.That(ex.Message, Is.EqualTo("failed to run query"));
                 }
             }
         }
